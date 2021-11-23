@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Administradores\frmAdministradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Administradores\frmCUAdministradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BackUp\" />
+    <Folder Include="Clases y Materias\Materias\Evaluaciones\" />
+    <Folder Include="Finanzas y Avisos\" />
+  </ItemGroup>
+
+</Project>
