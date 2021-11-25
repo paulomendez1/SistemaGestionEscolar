@@ -1,6 +1,7 @@
 ﻿using BLL;
 using Common;
 using Controller;
+using GUI.Finanzas_y_Avisos;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,17 +11,73 @@ namespace GUI
     public partial class Main : Form
     {
         private readonly BackUpController _backUpController = new();
+        private readonly AvisoController _avisoController = new();
+        private int Notificaciones;
         public Main()
         {
             InitializeComponent();
+            dataGridView1.Visible = false;
             sToolStripMenuItem.Text = $"Hola {SessionCache.Nombre} {SessionCache.Apellido}!";
             if (SessionCache.Rol != 1)
             {
                 crearBackUpToolStripMenuItem.Visible = false;
                 manejarAdminsToolStripMenuItem.Visible = false;
             }
+            if (SessionCache.Rol == 1)
+            {
+                btnAvisos.Visible = false;
+                btnNotificaciones.Visible = false;
+            }
+            Notifies(SessionCache.Rol);
         }
 
+        private void Notifies(int id)
+        {
+            if (id == 2)
+            {
+                dataGridView1.DataSource = _avisoController.GetAvisos(null, null);
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    if (item.Cells[3].Value.ToString() == "Docentes")
+                    {
+                        if (DateTime.ParseExact(item.Cells[2].Value.ToString(), "dd-MM-yyyy", null) > DateTime.Now.Date.AddDays(-3))
+                        {
+                            Notificaciones++;
+                        }
+                    }
+                }
+                if (Notificaciones == 0)
+                {
+                    btnNotificaciones.Visible = false;
+                }
+                else
+                {
+                    btnNotificaciones.Text = Notificaciones.ToString();
+                }
+            }
+            else
+            {
+                dataGridView1.DataSource = _avisoController.GetAvisos(null, null);
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    if (item.Cells[3].Value.ToString() == "Alumnos")
+                    {
+                        if (DateTime.ParseExact(item.Cells[2].Value.ToString(), "dd-MM-yyyy", null) > DateTime.Now.Date.AddDays(-3))
+                        {
+                            Notificaciones++;
+                        }
+                    }
+                }
+                if (Notificaciones == 0)
+                {
+                    btnNotificaciones.Visible = false;
+                }
+                else
+                {
+                    btnNotificaciones.Text = Notificaciones.ToString();
+                }
+            }
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
         }
@@ -57,7 +114,7 @@ namespace GUI
             }
             else
             {
-                frmFinanzas fnz = new frmFinanzas();
+                frmFinanzasYAvisos fnz = new frmFinanzasYAvisos();
                 fnz.Show();
             }
         }
@@ -132,6 +189,12 @@ namespace GUI
             frmLogIn frmLogin = new frmLogIn();
             this.Close();
             frmLogin.Show();
+        }
+
+        private void btnAvisos_Click(object sender, EventArgs e)
+        {
+            Notificaciones not = new Notificaciones();
+            not.Show();
         }
     }
 }

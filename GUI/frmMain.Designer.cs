@@ -32,6 +32,8 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNotificaciones = new System.Windows.Forms.Button();
+            this.btnAvisos = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +42,7 @@ namespace GUI
             this.crearBackUpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recuperarVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manejarAdminsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEstudiantes = new System.Windows.Forms.Button();
             this.btnDocentes = new System.Windows.Forms.Button();
             this.btnFinanzas = new System.Windows.Forms.Button();
@@ -48,13 +51,14 @@ namespace GUI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMaterias = new System.Windows.Forms.Button();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +75,9 @@ namespace GUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.btnNotificaciones);
+            this.panel1.Controls.Add(this.btnAvisos);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -78,6 +85,31 @@ namespace GUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 64);
             this.panel1.TabIndex = 1;
+            // 
+            // btnNotificaciones
+            // 
+            this.btnNotificaciones.BackColor = System.Drawing.Color.Red;
+            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificaciones.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNotificaciones.Location = new System.Drawing.Point(668, 12);
+            this.btnNotificaciones.Name = "btnNotificaciones";
+            this.btnNotificaciones.Size = new System.Drawing.Size(20, 23);
+            this.btnNotificaciones.TabIndex = 5;
+            this.btnNotificaciones.Text = "-";
+            this.btnNotificaciones.UseVisualStyleBackColor = false;
+            // 
+            // btnAvisos
+            // 
+            this.btnAvisos.BackColor = System.Drawing.Color.White;
+            this.btnAvisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvisos.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAvisos.Image = ((System.Drawing.Image)(resources.GetObject("btnAvisos.Image")));
+            this.btnAvisos.Location = new System.Drawing.Point(681, 1);
+            this.btnAvisos.Name = "btnAvisos";
+            this.btnAvisos.Size = new System.Drawing.Size(25, 23);
+            this.btnAvisos.TabIndex = 4;
+            this.btnAvisos.UseVisualStyleBackColor = false;
+            this.btnAvisos.Click += new System.EventHandler(this.btnAvisos_Click);
             // 
             // btnExit
             // 
@@ -138,14 +170,14 @@ namespace GUI
             // crearBackUpToolStripMenuItem1
             // 
             this.crearBackUpToolStripMenuItem1.Name = "crearBackUpToolStripMenuItem1";
-            this.crearBackUpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.crearBackUpToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
             this.crearBackUpToolStripMenuItem1.Text = "Crear BackUp";
             this.crearBackUpToolStripMenuItem1.Click += new System.EventHandler(this.crearBackUpToolStripMenuItem1_Click);
             // 
             // recuperarVersionToolStripMenuItem
             // 
             this.recuperarVersionToolStripMenuItem.Name = "recuperarVersionToolStripMenuItem";
-            this.recuperarVersionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recuperarVersionToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.recuperarVersionToolStripMenuItem.Text = "Recuperar Version";
             this.recuperarVersionToolStripMenuItem.Click += new System.EventHandler(this.recuperarVersionToolStripMenuItem_Click);
             // 
@@ -155,6 +187,13 @@ namespace GUI
             this.manejarAdminsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.manejarAdminsToolStripMenuItem.Text = "Manejar Adminitradores";
             this.manejarAdminsToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.logoutToolStripMenuItem.Text = "Cerrar Sesión";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // btnEstudiantes
             // 
@@ -191,9 +230,9 @@ namespace GUI
             this.btnFinanzas.ForeColor = System.Drawing.Color.White;
             this.btnFinanzas.Location = new System.Drawing.Point(610, 213);
             this.btnFinanzas.Name = "btnFinanzas";
-            this.btnFinanzas.Size = new System.Drawing.Size(95, 36);
+            this.btnFinanzas.Size = new System.Drawing.Size(95, 47);
             this.btnFinanzas.TabIndex = 9;
-            this.btnFinanzas.Text = "Finanzas";
+            this.btnFinanzas.Text = "Finanzas y \r\nAvisos";
             this.btnFinanzas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFinanzas.UseVisualStyleBackColor = false;
             this.btnFinanzas.Click += new System.EventHandler(this.btnFinanzas_Click);
@@ -253,12 +292,14 @@ namespace GUI
             this.btnMaterias.UseVisualStyleBackColor = false;
             this.btnMaterias.Click += new System.EventHandler(this.btnMaterias_Click);
             // 
-            // logoutToolStripMenuItem
+            // dataGridView1
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.logoutToolStripMenuItem.Text = "Cerrar Sesión";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(624, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(27, 24);
+            this.dataGridView1.TabIndex = 15;
             // 
             // Main
             // 
@@ -291,6 +332,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +359,8 @@ namespace GUI
         private System.Windows.Forms.ToolStripMenuItem crearBackUpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem recuperarVersionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.Button btnNotificaciones;
+        private System.Windows.Forms.Button btnAvisos;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

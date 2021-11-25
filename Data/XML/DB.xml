@@ -50,6 +50,52 @@
     <alumnoid>4</alumnoid>
     <claseid>2</claseid>
   </Asistencia>
+  <Asistencia>
+    <id>5</id>
+    <asistio>1</asistio>
+    <alumnoid>1</alumnoid>
+    <claseid>3</claseid>
+  </Asistencia>
+  <Asistencia>
+    <id>6</id>
+    <asistio>1</asistio>
+    <alumnoid>2</alumnoid>
+    <claseid>3</claseid>
+  </Asistencia>
+  <Asistencia>
+    <id>7</id>
+    <asistio>1</asistio>
+    <alumnoid>4</alumnoid>
+    <claseid>3</claseid>
+  </Asistencia>
+  <Aviso>
+    <id>1</id>
+    <leyenda>Anuncio 1</leyenda>
+    <fecha>24-11-2021</fecha>
+    <suscriptoresid>3</suscriptoresid>
+  </Aviso>
+  <Aviso>
+    <id>2</id>
+    <leyenda>Hola
+
+Como Andan?</leyenda>
+    <fecha>24-11-2021</fecha>
+    <suscriptoresid>2</suscriptoresid>
+  </Aviso>
+  <Aviso>
+    <id>3</id>
+    <leyenda>Hola
+
+Como Andan?</leyenda>
+    <fecha>24-11-2021</fecha>
+    <suscriptoresid>3</suscriptoresid>
+  </Aviso>
+  <Aviso>
+    <id>0</id>
+    <leyenda>Le informamos que el valor de la cuota ha cambiado!, Ahora es 5200</leyenda>
+    <fecha>24-11-2021</fecha>
+    <suscriptoresid>3</suscriptoresid>
+  </Aviso>
   <Clase>
     <id>1</id>
     <fecha>10-07-2021</fecha>
@@ -58,6 +104,11 @@
   <Clase>
     <id>2</id>
     <fecha>17-11-2021</fecha>
+    <docenteid>2</docenteid>
+  </Clase>
+  <Clase>
+    <id>3</id>
+    <fecha>24-11-2021</fecha>
     <docenteid>2</docenteid>
   </Clase>
   <Docente>
@@ -90,7 +141,7 @@
   </Docente>
   <Evaluacion>
     <id>2</id>
-    <fecha>10-Jul-21</fecha>
+    <fecha>10-07-2021</fecha>
     <calificacion>6</calificacion>
     <alumnoid>1</alumnoid>
     <materiaid>1</materiaid>
@@ -132,7 +183,7 @@
   </Evaluacion>
   <Finanza>
     <id>1</id>
-    <valorcuota>5000</valorcuota>
+    <valorcuota>5200</valorcuota>
     <valorservicio>2000</valorservicio>
   </Finanza>
   <Materia>

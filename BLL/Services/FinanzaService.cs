@@ -15,6 +15,7 @@ namespace BLL.Services
     public class FinanzaService : IFinanzaService
     {
         private readonly IUnitOfWork _unitOfWork = new UnitOfWork();
+        private readonly Subject _subject = new();
         private readonly DataSet _ds = DataAccess.Instancia.ds;
 
         public Finanza GetFinanza(int id)
@@ -56,6 +57,7 @@ namespace BLL.Services
         {
             _unitOfWork.FinanzaRepository.Update(finanza);
             _unitOfWork.WriteXML(_ds);
+            _subject.Notify(finanza.ValorCuota);
             return true;
         }
     }

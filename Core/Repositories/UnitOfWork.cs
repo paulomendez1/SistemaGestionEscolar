@@ -22,7 +22,7 @@ namespace Core.Repositories
         private readonly IClaseRepository _claseRepository = new ClaseRepository();
         private readonly IRepository<Asistencia> _asistenciaRepository = new BaseRepository<Asistencia>();
         private readonly IFinanzaRepository _finanzaRepository = new FinanzaRepository();
-
+        private readonly IRepository<Aviso> _avisoRepository = new BaseRepository<Aviso>();
 
         public IDocenteRepository DocenteRepository => _docenteRepository ?? new DocenteRepository();
         public IAlumnoRepository AlumnoRepository => _alumnoRepository ?? new AlumnoRepository();
@@ -35,6 +35,7 @@ namespace Core.Repositories
         public IRepository<Asistencia> AsistenciaRepository => _asistenciaRepository ?? new BaseRepository<Asistencia>();
 
         public IFinanzaRepository FinanzaRepository => _finanzaRepository ?? new FinanzaRepository();
+        public IRepository<Aviso> AvisoRepository => _avisoRepository ?? new BaseRepository<Aviso>();
 
         public void Dispose()
         {

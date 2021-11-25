@@ -27,7 +27,6 @@
   <ItemGroup>
     <Folder Include="BackUp\" />
     <Folder Include="Clases y Materias\Materias\Evaluaciones\" />
-    <Folder Include="Finanzas y Avisos\" />
   </ItemGroup>
 
 </Project>

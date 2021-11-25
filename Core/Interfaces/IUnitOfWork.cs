@@ -23,6 +23,7 @@ namespace Core.Interfaces
 
         IRepository<Asistencia> AsistenciaRepository { get; }
         IFinanzaRepository FinanzaRepository { get; }
+        IRepository<Aviso> AvisoRepository { get; }
 
         void WriteXML(DataSet ds);
     }

@@ -46,6 +46,9 @@ namespace Common
         public const string VALORCUOTA = "ValorCuota";
         public const string VALORSERVICIO = "ValorServicio";
 
+        //AVISO
+        public const string SUSCRIPTORESID = "SuscriptoresId";
+        public const string LEYENDA = "Leyenda";
 
 
 
